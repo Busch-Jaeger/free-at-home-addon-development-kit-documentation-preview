@@ -37,7 +37,7 @@ First we will make the demo script (ceiling fan simulator) run on the developmen
 
    ![local API activation](localapi_2.png)
 
-4. In the file **main.ts** we can modify the folowing data
+4. In the file **main.ts** (in the subfolder **src**) we can modify the folowing data
 
 
 
