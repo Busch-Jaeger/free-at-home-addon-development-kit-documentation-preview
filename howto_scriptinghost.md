@@ -63,7 +63,7 @@ First we will make the demo script (ceiling fan simulator) run on the developmen
 
 9. If the script is running sufficiently on the development machine we can start to build the package.
     1. open the terminal / console of your development suite
-    2. Navigate to and open the **package.json** file
+    2. Navigate to and open the **free-at-home-metadata.json** file
     3. Adjust the fields *name* and *version* to your needs
     4. type **npm run build** into the console and press enter
     5. type **npm run pack** into the console and press enter
