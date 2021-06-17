@@ -21,7 +21,7 @@ First we will make the demo script (ceiling fan simulator) run on the developmen
 
 1. Download the following [Demo Package](https://abb-my.sharepoint.com/:u:/p/jan_p_schaefer_de/EYekvaVmrKtPp-pQqeLkYg8B-6p2yyAHkmPtBuNOjYnHsQ?e=RFud9Q) and unzip to your disk
 2. Open your development suite and select **open folder**, there pick the folder of Demo Package extracted beforehand.
-3. In the file **launch.json** we have to modified the required data towards the System Access Point on premise:
+3. In the file **launch.json** (in the subfolder **.vscode**) we have to modified the required data towards the System Access Point on premise:
 
 
 
