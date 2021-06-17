@@ -71,9 +71,10 @@ First we will make the demo script (ceiling fan simulator) run on the developmen
 
 10. The tar file can be uploaded to the system access point like this:
     1. Open the webbrowser and type in <<ip adress of the System Access Point/swagger>>
-    2. Authorize with the credentials found in the free@home NEXT app in the *local API* menu
-    3. Choose the API endpoint */rest/ref/* and press *try out*
-    4. Choose the file by tapping the *Choose the file* button and press *Execute*
+    2. Click on *Swagger Scripting* at the left side
+    3. Authorize with the credentials found in the free@home NEXT app in the *local API* menu 
+    4. Choose the API endpoint */rest/ref/* and press *try out*
+    5. Choose the .tar file by tapping the *Browse...* (next to *data\**) button and press *Execute*
 
 ![local API activation](swagger1.png)
 
