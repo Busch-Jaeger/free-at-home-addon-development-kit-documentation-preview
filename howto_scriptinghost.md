@@ -68,6 +68,7 @@ First we will make the demo script (ceiling fan simulator) run on the developmen
     4. type **npm run build** into the console and press enter
     5. type **npm run pack** into the console and press enter
     6. A file ending with *name.tar* schould appear inside the project folder
+    
 
 10. The tar file can be uploaded to the system access point like this:
     1. Open the webbrowser and type in <<ip adress of the System Access Point/swagger>>
