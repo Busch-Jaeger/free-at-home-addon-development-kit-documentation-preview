@@ -19,7 +19,10 @@ All scripting toward free@home scripting host is done in javascript / typescript
 
 First we will make the demo script (ceiling fan simulator) run on the development machine to try out the general behavior! This little demo script will make use of the capability of free@home API to create virtual devices inside the system which appear and behave as native free@home devices and can be controlled and observed from third parties. In this concret script example a simple ceiling fan device is created and if the user interacts with the ceiling fan device (e.g. turn on/ off) the script is return the value as feedback update. Thus the ceiling fan behaves as it was connected really to an external device.
 
-1. Download the following [Demo Package](https://abb-my.sharepoint.com/:u:/p/jan_p_schaefer_de/EYekvaVmrKtPp-pQqeLkYg8B-6p2yyAHkmPtBuNOjYnHsQ?e=RFud9Q) and unzip to your disk
+1. Download the following
+    [Demo Package](https://abb-my.sharepoint.com/:u:/p/jan_p_schaefer_de/EYekvaVmrKtPp-pQqeLkYg8B-6p2yyAHkmPtBuNOjYnHsQ?e=RFud9Q) 
+    [Alternative download] https://dev.azure.com/ABB-BHC-BHAS/DEBJE-FreeAtHomeExtensions/_git/howto-scriptinghost?path=/node-free-at-home-ceiling-fan-simulator.zip&version=GBmaster
+and unzip to your disk
 2. Open your development suite and select **open folder**, there pick the folder of Demo Package extracted beforehand.
 3. In the file **launch.json** (in the subfolder **.vscode**) we have to modified the required data towards the System Access Point on premise:
 
