@@ -21,6 +21,7 @@ First we will make the demo script (ceiling fan simulator) run on the developmen
 
 1. Download the following
     [Demo Package](https://abb-my.sharepoint.com/:u:/p/jan_p_schaefer_de/EYekvaVmrKtPp-pQqeLkYg8B-6p2yyAHkmPtBuNOjYnHsQ?e=RFud9Q) 
+    
     [Alternative download] https://dev.azure.com/ABB-BHC-BHAS/DEBJE-FreeAtHomeExtensions/_git/howto-scriptinghost?path=/node-free-at-home-ceiling-fan-simulator.zip&version=GBmaster
 and unzip to your disk
 2. Open your development suite and select **open folder**, there pick the folder of Demo Package extracted beforehand.
