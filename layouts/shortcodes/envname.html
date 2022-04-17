@@ -1,0 +1,8 @@
+{{- if eq $.Site.BaseURL "https://stage.developer.eu.mybuildings.abb.com" -}}
+Staging
+{{- else if eq $.Site.BaseURL "https://dev.developer.eu.mybuildings.abb.com" -}}
+Development
+{{- else -}}
+Production
+{{- end -}}
+

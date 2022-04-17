@@ -1,0 +1,21 @@
+{{ partial "html-head.html" . }}
+{{ partial "azure-portal-start.html" }}
+
+<main>
+    <a href="{{ .Parent.RelPermalink }}">&lt;- Up: {{.Parent.Title}}</a><br><br>
+    {{ if .Params.ShowTOC }}
+    <aside>
+        <p>
+        On this page:
+        </p>
+        {{ .TableOfContents }}
+    </aside>
+    {{ end }}
+
+    <article>
+        {{.Content}}
+    </article>
+</main>
+
+{{ partial "azure-portal-end.html" }}
+{{ partial "html-footer.html" . }}

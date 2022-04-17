@@ -1,0 +1,42 @@
+{{ partial "html-head.html" . }}
+{{ partial "azure-portal-start.html" }}
+
+<main>
+<article>
+{{ .Content }}
+
+{{ define "subsections-navigation" }}
+    {{- range .Sections }}
+    <li><a href="{{ .RelPermalink }}">{{ .Title }}</li></a>
+    {{ if gt (len .Sections) 0 }}
+      <ul>
+      {{ template "subsections-navigation" . }}
+      </ul>
+    {{ end }}
+    {{- end }}
+{{ end }}
+
+{{ define "subsections-navigation-top" }}
+    {{- range .Sections }}
+    {{ if isset .Params "toptitle"}}
+    <h3>{{ .Params.topTitle }}</h3> 
+    <hr>
+    {{ end }}
+    <ul>
+      <li><a href="{{ .RelPermalink }}">{{ .Title }}</li></a>
+    {{ if gt (len .Sections) 0 }}
+      <ul>
+      {{ template "subsections-navigation-top" . }}
+      </ul>
+    {{ end }}
+    </ul>
+    {{- end }}
+{{ end }}
+
+<br>
+    {{ template "subsections-navigation-top" . }}
+</article>
+</main>
+
+{{ partial "azure-portal-end.html" }}
+{{ partial "html-footer.html" . }}

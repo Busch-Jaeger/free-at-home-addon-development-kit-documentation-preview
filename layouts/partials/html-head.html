@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<head>
+    <title>{{.Title}}</title>
+    <!-- NOTE: These resources are used in local hugo setups only. on the dev portal, they will be
+        replaced. -->
+    {{ $bootstrap_css := resources.Get "bootstrap-4.4.1.min.css" }}
+    <link href="{{$bootstrap_css.Permalink}}" rel="stylesheet" type="text/css" />
+</head>
+<body>
