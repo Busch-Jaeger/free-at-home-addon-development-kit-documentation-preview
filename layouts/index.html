@@ -12,7 +12,11 @@
     <hr>
     {{ end }}
     <ul>
-      <li><a href="{{ .RelPermalink }}">{{ .Title }}</li></a>
+      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        {{ if isset .Params "subtitle"}}
+          <div>{{ .Params.subtitle }}</div>
+        {{ end }}
+      </li>
     {{ if gt (len .Sections) 0 }}
       <ul>
       {{ template "subsections-navigation-top" . }}

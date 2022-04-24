@@ -1,5 +1,6 @@
 ---
 title: "Getting Started with free@home Addon Development: A Walkthrough"
+subtitle: "This section describes how to setup the development environment and the SysAP for Addon development. Refer to the following sections for further details, if required."
 draft: false
 weight: 10
 ShowTOC: true

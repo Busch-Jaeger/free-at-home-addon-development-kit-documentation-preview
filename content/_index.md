@@ -20,13 +20,4 @@ No detailed knowledge of the free@home system is required, other than being able
 
 To get started immediately, please refer to the [walkthrough]({{<relref gettingstarted >}}).
 
-The remainder of this documentation gives further details on addons:
-
-- [Prerequisites for developing and using addons]({{< relref prerequisites >}})
-
-  Note in particular that both, end-users and developer need to activate the local-API on their System Access Point prior to using addons.
-
-- [Getting started with development: A walkthrough]({{< relref gettingstarted >}}).
-
-  This section describes how to setup the development environment and the SysAP for Addon development. Refer to the following sections for further details, if required.
-
+The remainder of this documentation gives further details on addons.
