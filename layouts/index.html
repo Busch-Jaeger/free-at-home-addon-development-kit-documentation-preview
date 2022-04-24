@@ -5,17 +5,6 @@
 <article>
 {{ .Content }}
 
-{{ define "subsections-navigation" }}
-    {{- range .Sections }}
-    <li><a href="{{ .RelPermalink }}">{{ .Title }}</li></a>
-    {{ if gt (len .Sections) 0 }}
-      <ul>
-      {{ template "subsections-navigation" . }}
-      </ul>
-    {{ end }}
-    {{- end }}
-{{ end }}
-
 {{ define "subsections-navigation-top" }}
     {{- range .Sections }}
     {{ if isset .Params "toptitle"}}
