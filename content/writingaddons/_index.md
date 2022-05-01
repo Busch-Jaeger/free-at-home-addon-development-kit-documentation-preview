@@ -170,11 +170,17 @@ import http  from 'http';
 
 const freeAtHome = new FreeAtHome();
 let port: number = 8099; // Choose a port for your Addon. Consider using a parameter to make it configurable.
+let isOn: boolean = false;
 
 async function main() {
     const mySwitch = await freeAtHome.createSwitchingActuatorDevice("mySwitch", "Switch from Addon");
     mySwitch.setAutoKeepAlive(true);
     mySwitch.isAutoConfirm = true;
+
+    // track the 'on' state, to provide toggle functionality
+    mySwitch.on('isOnChanged', (value: boolean) => {
+        isOn = value;
+    });
 
     function startServer() {
         return http.createServer(function (request, response) {
@@ -184,6 +190,11 @@ async function main() {
                 response.write("OK\r\n");
             } else if (request.method == 'POST' && request.url == '/rest/switch/off') {
                 mySwitch.setOn(false);
+                response.writeHead(200, {'Content-Type': 'text/plain'});
+                response.write("OK\r\n");
+            } else if (request.method == 'POST' && request.url == '/rest/switch/toggle') {
+                isOn = !isOn;
+                mySwitch.setOn(isOn);
                 response.writeHead(200, {'Content-Type': 'text/plain'});
                 response.write("OK\r\n");
             } else {
@@ -207,6 +218,8 @@ next App and in the web interface.
 curl -X POST http://<IP>:8099/rest/switch/on
 # Turn switch off
 curl -X POST http://<IP>:8099/rest/switch/off
+# Toggle switch on/off
+curl -X POST http://<IP>:8099/rest/switch/toggle
 ```
 
 NOTE: The `<IP>` of this HTTP server is the SysAP IP if the Addon is
