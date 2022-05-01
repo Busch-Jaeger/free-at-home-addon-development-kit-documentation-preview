@@ -242,4 +242,8 @@ settings that the user will normally not changed in an `Advanced Settings` group
 #### Using parameters in the Addon script
 
 When parameters are defined in the metadata file, they can be accessed from the TypeScript code in
-the Addon.
+the Addon. The configured value will show up in the `Configuration`of the Addon, the
+`configurationChanged` event of the `ScriptingHost` class will provide the current configuration.
+
+Please see the [writing Addons section]({{<relref writingaddons>}}) for more information about using
+the configuration parameters in the Addon.
