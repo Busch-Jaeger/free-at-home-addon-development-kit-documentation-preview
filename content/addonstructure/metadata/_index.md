@@ -30,7 +30,7 @@ attributes marked as `optional` can be omitted, if it provides no benefit for th
   Note that it is preferred to use an actual domain name (in reverse notation), but not a
   requirement, i.e. the domain name does not have to actually exist.
 
-- `name` (required)
+- `name` (required, can be localized)
 
   A human readable name of the Addon.
 
@@ -38,11 +38,39 @@ attributes marked as `optional` can be omitted, if it provides no benefit for th
   in the list of installed Addons - it should be relatively short, so that the end-user can
   recognize each Addon immediately.
 
-- `description` (required)
+  This attribute can be localized. Instead of a simple string, you can use a JSON object, providing
+  a different value for each language (though the "en" language always must be present and is used
+  as a fallback). For example:
+
+  ```json
+  {
+    "name": "Sample Addon"
+  }
+  ```
+
+  localized:
+
+  ```json
+  {
+    "name": {
+      "en": "Sample Addon",
+      "de": "Beispiel Addon"
+    }
+  }
+  ```
+
+  The full list of valid language codes for a given SysAP version can be obtained from the swagger
+  documentation on `http://<sysap IP>/swagger` in the `/rest/ref/{reference}` call of the Add-on
+  API.
+
+- `description` (required, can be localized)
 
   A human readable description of the script. This is similar to the name, but allows for a longer
   text. It is display in the free@home next app and in the SysAP web interface when the user clicks
   on the Addon.
+
+  Similar to the `name`, the description can be localized. See the documentation of `name` for
+  details.
 
 - `version` (required)
 
