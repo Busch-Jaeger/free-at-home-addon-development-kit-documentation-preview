@@ -19,7 +19,7 @@ For this, a few prerequisites have to be met by the developer and the end user.
 
 Installing and using addons to the free@home SysAP requires
 
-- A system access point with at least version 3.0.0.
+- A system access point 2.0 with firmware version at least 3.0.0.
 
 - The free@home next App for a mobile device.
 
