@@ -61,7 +61,7 @@ attributes marked as `optional` can be omitted, if it provides no benefit for th
 
 - `type` (required)
 
-  Can be one of "app", "runtime" and "standalone".
+  Can be one of "app", "runtime" and "standalone". For Addons, always set this to "app".
 
 - `author` (required)
 
