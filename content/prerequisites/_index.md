@@ -2,7 +2,7 @@
 title: "Prerequisites for developing and using free@home Addons"
 subtitle: "Note in particular that both, end-users and developer need to activate the local-API on their System Access Point prior to using addons."
 draft: false
-weight: -1
+weight: 20
 ShowTOC: true
 ---
 
