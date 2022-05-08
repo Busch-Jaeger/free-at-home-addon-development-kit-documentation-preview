@@ -1,26 +1,26 @@
 ---
-title: "Getting Started with free@home Addon Development: A Walkthrough"
-subtitle: "This section describes how to setup the development environment and the SysAP for Addon development. Refer to the following sections for further details, if required."
+title: "Getting Started with ABB free@home Addon Development: A Walkthrough"
+subtitle: "This section describes how to setup the development environment and the System Access Point for ABB free@home Addon development. Refer to the following sections for further details, if required."
 draft: false
 weight: 10
 ShowTOC: true
 ---
 
-## Getting started with free@home Addons
+## Getting started with ABB free@home Addons
 
 ------------------------------------------------------------------------
 
-This section is meant to get you started quickly with free@home addon development.
+This section is meant to get you started quickly with ABB free@home Addon development.
 
 ### Prerequisites
 
-- You need a free@home System Access Point (SysAP) version at lease 3.0.0
+- You need a free@home System Access Point version at least 3.0.0
 
-- The SysAP must be in your local network, i.e. your development machine must be able to access it.
+- The System Access Point must be in your local network, i.e. your development machine must be able to access it.
   Access through the free@home cloud is not possible. You can setup a VPN though, however this is
   beyond the scope of this document)
 
-- Activate the `Local API` in your SysAP settings, see the
+- Activate the `Local API` in your System Access Point settings, see the
   [prerequisites]({{<relref prerequisites>}}) for details
 
 - Basic knowledge of javascript / typescript is required
@@ -42,15 +42,15 @@ The required steps in this walkthrough are:
 
 3. Modify the example to your needs
 
-4. Deploy the example to your SysAP
+4. Deploy the example to your System Access Point
 
 This example will create virtual devices that can be controlled directly in the free@home next apps.
-The SysAP will send the changes to the device ("on"/"off") to the addon running on your development
+The System Access Point will send the changes to the device ("on"/"off") to the addon running on your development
 machine, but otherwise the devices will behave in free@home like real devices.
 
-### Obtain the example addon
+### Obtain the example ABB free@home Addon
 
-In this walkthrough we use the XXX example addon. This example consists of three parts:
+In this walkthrough we use the node-free∆home-example example addon. This example consists of three parts:
 
 - The free-at-home js library that provides functions to create (virtual) devices and control them.
 
@@ -58,7 +58,7 @@ In this walkthrough we use the XXX example addon. This example consists of three
 
 - The js source code for the actual addon.
 
-First download the example from [here]() and extract the file on your development machine.
+First download the example from [here](https://developer.eu.mybuildings.abb.com) and extract the file on your development machine.
 
 Next, open the extracted folder in a command line and type
 
@@ -81,14 +81,14 @@ there.
 1. Open Visual Studio Code, and select `open folder`, there pick the folder of demo package
    extracted beforehand.
 
-2. Adjust the configuration for your development SysAP:
+2. Adjust the configuration for your development System Access Point:
 
    1. Open the file `launch.json` in the subfolder `.vscode`. This configuration will be used by
       Visual Studio Code when starting the addon.
 
    2. Find and edit the settings `FREEATHOME_API_BASE_URL`, `FREEATHOME_API_USERNAME` and
-      `FREEATHOME_API_PASSWORD`. These must be set to the address of the local API on your SysAP,
-      the username on that SysAP that provides the local API, and the password of that user.
+      `FREEATHOME_API_PASSWORD`. These must be set to the address of the local API on your System Access Point,
+      the username on that System Access Point that provides the local API, and the password of that user.
       ```
             "FREEATHOME_API_BASE_URL": "http://192.168.x.x/fhapi/v1", (IP Address of the System Access Point)
             "FREEATHOME_API_USERNAME": "installer",                   (Username shown for local API in the free@home NEXT app)
@@ -96,14 +96,14 @@ there.
       ```
 
       These environment variables will be used by the addon when starting it on your development
-      machine to contact the REST API ("local API") on the SysAP. It will not be needed when
-      deploying the final addon directly onto the SysAP.
+      machine to contact the REST API ("local API") on the System Access Point. It will not be needed when
+      deploying the final addon directly onto the System Access Point.
 
 Next, take a look at the `main.js` file in the `src` directory of the example. This is the full
 addon code:
 
 - Notice that this example uses the `free-at-home` library. This library is provided for addons and
-  does the heavy lifting of communicating with the SysAP and provides a convenient TypeScript API
+  does the heavy lifting of communicating with the System Access Point and provides a convenient TypeScript API
   for this.
 
 - The `main` function creates two virtual devices, a simple `switch` actuator (i.e. a devices that
@@ -114,13 +114,13 @@ addon code:
   implementation.
 
 Finally, run the example in vscode (`Run -> Start Debugging`). Keep in mind that the `Local API`
-must have been activated on the SysAP for this step, see the
-[prerequisites]({{<relref prerequisites>}}) for details. If successful, your SysAP should now
+must have been activated on the System Access Point for this step, see the
+[prerequisites]({{<relref prerequisites>}}) for details. If successful, your System Access Point should now
 provide the new devices.
 
 ![Screenshot of the App showing two virtual devices added by the Addon](app_actuators.jpg "When addon is running, the virtual devices appear in the app and can be controlled")
 
-Open the `House Structure` on your SysAP and place the devices into rooms,
+Open the `House Structure` on your System Access Point and place the devices into rooms,
 then they can be used normally. When switching the devices using the app, you should now see
 corresponding console output in the `Debug Console` pane of Visual Studio Code.
 
@@ -129,11 +129,11 @@ corresponding console output in the `Debug Console` pane of Visual Studio Code.
 At this point, the addon is set up complete. You can now open the `main.js` file and adjust it to
 your needs, for example change the name of the devices and observe the changes in the app.
 
-### Deploy the addon to the SysAP
+### Deploy the ABB free@home Addon to the System Access Point
 
 When the addon is set up as desired, the final step is to build an addon archive file and deploy
-it to the SysAP. Then the addon will directly run on the SysAP instead of your local development
-machine. The REST interface to the SysAP that is used by the addon remains the same, so no
+it to the System Access Point. Then the addon will directly run on the System Access Point instead of your local development
+machine. The REST interface to the System Access Point that is used by the addon remains the same, so no
 additional changes are required.
 
 Refer to [deployment]({{<relref deployment>}}) for a more detailed deployment documentation. Steps
@@ -155,9 +155,9 @@ for this example:
 
   This will output a new file `<id>-<version>.tar` in the example root folder, matching the `id` and
   `version` specified in `free-at-home-metadata.json`. This is the final addon that can be uploaded
-  to the SysAP.
+  to the System Access Point.
 
-4. Upload the file to your SysAP, for example using a webbrowser in the `Addons` section of the
+4. Upload the file to your System Access Point, for example using a webbrowser in the `Addons` section of the
    settings.
 
    Alternatively, you can use the `free-at-home-cli` tool in a command line terminal for
@@ -166,16 +166,16 @@ for this example:
 
    Linux/Mac:
    ```bash
-   export FREEATHOME_BASE_URL=http://[IP of SysAP]
-   export FREEATHOME_API_USERNAME=[SysAP username that activated local API]
+   export FREEATHOME_BASE_URL=http://[IP of System Access Point]
+   export FREEATHOME_API_USERNAME=[System Access Point username that activated local API]
    export FREEATHOME_API_PASSWORD=[Password of user]
    ./node_modules/.bin/free-at-home-cli upload
    ```
 
    Windows:
    ```
-   $env:FREEATHOME_BASE_URL = 'http://[IP of SysAP]'
-   $env:FREEATHOME_API_USERNAME = '[SysAP username that activated local API]'
+   $env:FREEATHOME_BASE_URL = 'http://[IP of System Access Point]'
+   $env:FREEATHOME_API_USERNAME = '[System Access Point username that activated local API]'
    $env:FREEATHOME_API_PASSWORD = '[Password of user]]'
    ./node_modules/.bin/free-at-home-cli upload
    ```

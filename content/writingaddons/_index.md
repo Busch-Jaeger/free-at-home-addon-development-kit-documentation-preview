@@ -1,11 +1,11 @@
 ---
-title: "Writing free@home Addons"
+title: "Writing ABB free@home Addons"
 draft: false
 weight: 150
 ShowTOC: true
 ---
 
-## Writing free@home Addons
+## Writing ABB free@home Addons
 
 ------------------------------------------------------------------------
 
@@ -13,7 +13,7 @@ When the System Access Point and the local development computer are prepared as 
 [prerequisites]({{<relref prerequisites>}}) section, the actual Addon development can start.
 
 Addons are written in TypeScript/JavaScript using NodeJS. They communicate with the System Access
-Point (SysAP) using the "local API" provided by the SysAP. In principle, the Addon developer can
+Point using the "local API" provided by the System Access Point. In principle, the Addon developer can
 make all calls to the local API manually, see the
 [local API documentation](https://developer.eu.mybuildings.abb.com/fah_local/) for details.
 However we strongly recommend to use the Node.js based `free-at-home` convenience library that is
@@ -23,7 +23,7 @@ documentation will always use this library.
 
 ### Initialization
 
-To initialize a new free@home Addon, simply import the `FreeAtHome` class from the `free-at-home`
+To initialize a new ABB free@home Addon, simply import the `FreeAtHome` class from the `free-at-home`
 library and create a new object:
 
 ```typescript
@@ -38,18 +38,18 @@ async function main() {
 main()
 ```
 
-This will set up the Addon for communication with the SysAP. When running on a local development
+This will set up the Addon for communication with the System Access Point. When running on a local development
 machine, this involves reading the `FREEATHOME_BASE_URL`, `FREEATHOME_API_USERNAME` and
 `FREEATHOME_API_PASSWORD` environment variables, as described in the
-[walkthrough]({{<relref gettingstarted>}}), when running on the SysAP itself, the addon can use a
-local unix socket instead.
+[walkthrough]({{<relref gettingstarted>}}), when running on the System Access Point itself,
+the addon can use a local unix socket instead.
 
-The `FreeAtHome` class is the main class to interact with when developing a free@home Addon.
+The `FreeAtHome` class is the main class to interact with when developing an ABB free@home Addon.
 
 ### Creating virtual devices
 
 When writing an Addon, a common use-case is to integrate some external device into the free@home
-system. This can be done by "virtual" devices: The SysAP does not have (direct) access to the actual
+system. This can be done by "virtual" devices: The System Access Point does not have (direct) access to the actual
 hardware device, so instead sends all commands and updates to a virtual device instead (and
 similarly can receive commands from this virtual device). The Addon can then perform it's own
 actions whenever necessary.
@@ -67,7 +67,7 @@ A new virtual device needs at least two parameters:
 
 The native ID should uniquely identify your device. If a device with that ID already exists, this
 function will simply use this device - the `create*` call should therefore be done on every startup
-of the script:
+of the ABB free@home Addon:
 
 ```typescript
 import { FreeAtHome } from 'free-at-home';
@@ -84,15 +84,15 @@ main()
 ```
 
 Notice that this example also calls `setAutoKeepAlive(true)` and sets `isAutoConfirm=true`. To
-detect devices that are no longer available (e.g. defective), the SysAP wants an occasional
+detect devices that are no longer available (e.g. defective), the System Access Point wants an occasional
 keepalive message from every device. If this is not practical for a given device, simply set
 `setAutoKeepAlive(true)`, then the `FreeAtHome` class of the Addon will send such a message
 automatically, effectively disabling the unresponsive detection for this device.
 
 This is all to create a new free@home device in an Addon. When the Addon is started, the device will
-show up in the device list of the SysAP. Next steps are to interact with the device in the Addon:
+show up in the device list of the System Access Point. Next steps are to interact with the device in the Addon:
 
-### Receiving updates from the SysAP about devices
+### Receiving updates from the System Access Point about devices
 
 After creating a device, the Addon normally needs to be informed about updates to the device state.
 For example when creating a switch, the Addon normally wants to know when the user turns the switch
@@ -126,11 +126,11 @@ provides the `MediaPlayerChannel` instead of the `SwitchingActuatorChannel` and 
 For details, see the class of the object that is returned (`mySwitch` in the example above)
 by the individual `create*` functions.
 
-### Sending updates to the SysAP for devices
+### Sending updates to the System Access Point for devices
 
 Similar to *receiving* updates from a device when the user changes something, an Addon usually also
 wants to *send* updates - for example when integrating an external switch into the free@home system,
-the "on"/"off" state of the switch should be reported to the SysAP when the (hardware) switch is
+the "on"/"off" state of the switch should be reported to the System Access Point when the (hardware) switch is
 pressed.
 
 For this, call the corresponding function of the object returned by the `create*()` functions. What
@@ -153,7 +153,7 @@ use-case your Addon aims to implement:
   This requires configuring the external device individually for the device serial - if this is
   infeasible, the Addon might open a dedicated HTTP server instead.
 - Whenever a connected USB stick sends an update. If your Addon implements functionality that is
-  provided by an USB stick/dongle attached to the SysAP (e.g. providing a Modbus interface), you may
+  provided by an USB stick/dongle attached to the System Access Point (e.g. providing a Modbus interface), you may
   want to react to events from that device.
 - By polling the external device or external state. Here you could start a timer in your Node.js
   based Addon and query the state of the external device - for example every few seconds. If you
@@ -222,9 +222,9 @@ curl -X POST http://<IP>:8099/rest/switch/off
 curl -X POST http://<IP>:8099/rest/switch/toggle
 ```
 
-NOTE: The `<IP>` of this HTTP server is the SysAP IP if the Addon is
-[deployed]({{< relref deployment>}}) to the SysAP, but when testing on a local development machine,
-then you must use the IP of the local development machine:
+NOTE: The `<IP>` of this HTTP server is the System Access Point IP if the Addon is
+[deployed]({{< relref deployment>}}) to the System Access Point, but when testing on a local
+development machine, then you must use the IP of the local development machine:
 
 ```shell
 # Turn switch on
@@ -243,7 +243,7 @@ To do so, you can define parameters in the `free-at-home-metadata.json` file, se
 section about parameters in the [metadata]({{< relref metadata>}}) documentation for details.
 
 Once specified in the metadata file, the parameters can be configured by the end-user and the
-configured values can be accessed by the Addon scripts.
+configured values can be accessed by the ABB free@home Addons.
 
 For example to configure the `port` of the http server used above, you can use the following
 metadata snippet:
@@ -268,15 +268,15 @@ metadata snippet:
 Then, modify the Addon to use the value configured by the user:
 
 ```typescript
-import {ScriptingHost} from 'free-at-home';
-import {ScriptingAPI} from 'free-at-home';
+import {ScriptingHost as Addons} from 'free-at-home';
+import {ScriptingAPI as AddonAPI} from 'free-at-home';
 
 let port: number = 8099;
 
 // Register for configuration changes in the metadata
-const metaData = ScriptingHost.readMetaData();
-const scriptingHost = new ScriptingHost.ScriptingHost(metaData.id);
-scriptingHost.on('configurationChanged', (configuration: ScriptingAPI.Configuration) => {
+const metaData = Addons.readMetaData();
+const addons = new Addons.ScriptingHost(metaData.id);
+addons.on('configurationChanged', (configuration: AddonAPI.Configuration) => {
     console.log(configuration);
     const origPort = port;
     port = configuration.default.items?.port ?? origPort;
@@ -286,7 +286,7 @@ scriptingHost.on('configurationChanged', (configuration: ScriptingAPI.Configurat
         server = startServer();
     }
 })
-scriptingHost.connectToConfiguration();
+addons.connectToConfiguration();
 ```
 
 This example will get notified about changes to the configuration and will restart the http server

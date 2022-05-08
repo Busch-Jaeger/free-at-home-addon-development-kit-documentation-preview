@@ -9,9 +9,9 @@ ShowTOC: true
 
 ------------------------------------------------------------------------
 
-### Resource limitations of free@home Addons on the system access point
+### Resource limitations of ABB free@home Addons on the system access point
 
-The free@home Addons run as a separate container on the system access point.
+The ABB free@home Addons run as a separate container on the system access point.
 Each container is assigned limited resources:
 
 - ram 64MB max

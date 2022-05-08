@@ -1,11 +1,11 @@
 ---
-title: "Structure of free@home Addons"
+title: "Structure of ABB free@home Addons"
 draft: false
 weight: 200
 ShowTOC: true
 ---
 
-##  Structure of free@home Addons
+##  Structure of ABB free@home Addons
 
 An Addon is a single `.tar` archive that contains the following files:
 
@@ -28,7 +28,7 @@ See the [metadata]({{<relref metadata>}}) documentation for details.
 
 ### Building the Addon archive
 
-The Addon archive `.tar` file can be built using the command line tool provided in the free@home
+The Addon archive `.tar` file can be built using the command line tool provided in the ABB free@home
 Addon Development Kit (ADK), for example in the example Addon.
 
 Please refer to the [walkthrough]({{<relref gettingstarted>}}) for usage details. This tool will

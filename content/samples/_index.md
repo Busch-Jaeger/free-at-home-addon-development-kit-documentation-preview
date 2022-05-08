@@ -8,31 +8,31 @@ ShowTOC: true
 To get started with the development of an add on the free@home example add on can be used as a base.
 
 
-## Configuration of target SysAP for development
+## Configuration of target System Access Point for development
 
-The library can be configured to connect to a remote SysAP. This can be used to debug an add on that runs on the developers environment.
+The library can be configured to connect to a remote System Access Point. This can be used to debug an add on that runs on the developers environment.
 
 Windows
 ```
-$env:FREEATHOME_BASE_URL = 'http://[ip of sysap]'
-$env:FREEATHOME_API_BASE_URL = 'http://[ip of sysap]/fhapi/v1'
+$env:FREEATHOME_BASE_URL = 'http://[IP of System Access Point]'
+$env:FREEATHOME_API_BASE_URL = 'http://[IP of System Access Point]/fhapi/v1'
 $env:FREEATHOME_API_USERNAME = '[username]'
 $env:FREEATHOME_API_PASSWORD = '[password of user]'
 ```
 
 Linux / Unix
 ```bash
-export FREEATHOME_BASE_URL=http://[ip of sysap]
-export FREEATHOME_API_BASE_URL=http://[ip of sysap]/fhapi/v1
+export FREEATHOME_BASE_URL=http://[IP of System Access Point]
+export FREEATHOME_API_BASE_URL=http://[IP of System Access Point]/fhapi/v1
 export FREEATHOME_API_USERNAME=[username]
 export FREEATHOME_API_PASSWORD=[password of user]
 ```
 
-## Debug a script in a NodeJS IDE
+## Debug a ABB free@home Addon in a NodeJS IDE
 
 Visual Studio Code (launch.json)
 
-```Javascript
+```javascript
 {
     "version": "0.2.0",
     "configurations": [
@@ -83,7 +83,7 @@ virtualSwitch.on('isOnChanged', (value: boolean) => {
 });
 ```
 
-## Use of the parameters for the configuration of scripts
+## Use of the parameters for the configuration of ABB free@home Addons
 
 Excerpt from free-at-home-metadata.json:
 
@@ -113,23 +113,23 @@ Excerpt from free-at-home-metadata.json:
 Simple version:
 
 ```javascript
-import {ScriptingHost} from 'free-at-home';
+import {ScriptingHost as Addons} from 'free-at-home';
 
-const metaData = ScriptingHost.readMetaData();
+const metaData = Addons.readMetaData();
 
-const scriptingHost = new ScriptingHost.ScriptingHost(metaData.id);
+const addons = new Addons.ScriptingHost(metaData.id);
 
-scriptingHost.on("configurationChanged", (configuration: API.Configuration) => {
+addons.on("configurationChanged", (configuration: API.Configuration) => {
   console.log(configuration);
 });
 
-scriptingHost.connectToConfiguration();
+addons.connectToConfiguration();
 ```
 
 Extended variant with typed configuration:
 
 ```javascript
-import {ScriptingHost} from 'free-at-home';
+import {ScriptingHost as Addons} from 'free-at-home';
 import {ScriptingAPI as API} from 'free-at-home'
 
 export interface ConfigurationProperties extends API.Configuration {
@@ -142,20 +142,21 @@ export interface ConfigurationProperties extends API.Configuration {
     },
 };
 
-const metaData = ScriptingHost.readMetaData();
+const metaData = Addons.readMetaData();
 
-const scriptingHost = new ScriptingHost.ScriptingHost<ConfigurationProperties>(metaData.id);
+const addons = new Addons.ScriptingHost<ConfigurationProperties>(metaData.id);
 
-scriptingHost.on("configurationChanged", (configuration: ConfigurationProperties) => {
+addons.on("configurationChanged", (configuration: ConfigurationProperties) => {
   console.log(configuration);
 });
 
-scriptingHost.connectToConfiguration();
+addons.connectToConfiguration();
 ```
 
-## Automatic logout of virtual devices on completion of a script
+## Automatic logout of virtual devices on completion of an ABB free@home Addon
 
-When a script terminates, all virtual devices created by that script should be unregistered as unresponsive from the system access point.
+When an ABB free@home Addon terminates, all virtual devices created by that addon should be
+unregistered as unresponsive from the system access point.
 This can be achieved by calling the method markAllDevicesAsUnresponsive() in the class FreeAtHome.
 
 ```javascript

@@ -1,23 +1,23 @@
 ---
-title: "Prerequisites for developing and using free@home Addons"
+title: "Prerequisites for developing and using ABB free@home Addons"
 subtitle: "Note in particular that both, end-users and developer need to activate the local-API on their System Access Point prior to using addons."
 draft: false
 weight: 20
 ShowTOC: true
 ---
 
-## Prerequisites for developing and using the free@home Addons
+## Prerequisites for developing and using the ABB free@home Addons
 
 ------------------------------------------------------------------------
 
-Addons extend the free@home System Access Point (SysAP) with custom functionality. They use the
-so-called "Local API" REST interface of the SysAP to access the current configuration and data
-model.
+Addons extend the free@home System Access Point with custom functionality. They use the
+so-called "Local API" REST interface of the System Access Point to access the current configuration
+and data model.
 For this, a few prerequisites have to be met by the developer and the end user.
 
 ### End user (using addons)
 
-Installing and using addons to the free@home SysAP requires
+Installing and using addons to the free@home System Access Point requires
 
 - A system access point 2.0 with firmware version at least 3.0.0.
 
@@ -28,15 +28,16 @@ Installing and using addons to the free@home SysAP requires
 
 #### Activation of Local API
 
-In order to install an Addon to the free@home SysAP, the end user must first enable the local API
-on the SysAP using the free@home next App. This API allows to use some functionality of the SysAP
-using REST calls in the local network of the SysAP and is used by the Addons to control and extend
-the functionality of the SysAP.
+In order to install an Addon to the free@home System Access Point, the end user must first
+enable the local API on the System Access Point using the free@home next App. This API allows to use
+some functionality of the System Access Point
+using REST calls in the local network of the System Access Point and is used by the Addons to
+control and extend the functionality of the System Access Point.
 
 In the free@home next App
 ([App Store](https://apps.apple.com/de/app/busch-free-home-next/id1501808668),
 [Play Store](https://apps.apple.com/de/app/busch-free-home-next/id1501808668)), the user must
-enable the `Activate Local API` setting in the SysAP settings,
+enable the `Activate Local API` setting in the System Access Point settings,
 found under `More -> Installation Settings -> Local API`.
 
 ![Screenshot of the More option in the app](enable_local_api_1.jpg "Enable Local API step 1: Open More page in the app")

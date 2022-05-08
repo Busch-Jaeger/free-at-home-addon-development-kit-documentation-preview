@@ -1,5 +1,5 @@
 ---
-title: "Deployment of free@home Addons to the SysAP"
+title: "Deployment of ABB free@home Addons to the System Access Point"
 draft: false
 weight: 100
 ShowTOC: true
@@ -12,11 +12,11 @@ ShowTOC: true
 Development of addons can be done a local development machine, as described in this documentation.
 However when development has finished, the addon files need to be packaged into a single archive
 file and deployed to the system access point, so that it can run without the development machine.
-This archive can then also be used by the end-user to install the addon directly to the SysAP.
+This archive can then also be used by the end-user to install the addon directly to the System Access Point.
 
 ### Build an addon archive
 
-Before uploading/deploying the addon to the SysAP, it must be built into an addon archive file.
+Before uploading/deploying the addon to the System Access Point, it must be built into an addon archive file.
 For this, the `free-at-home-cli` command line tool is provided:
 
 ```shell
@@ -35,25 +35,25 @@ the metadata section. For example:
 de.busch-jaeger.freeathome.example-1.0.0.tar
 ```
 
-This file can be deployed to the SysAP.
+This file can be deployed to the System Access Point.
 
-### Uploading the archive file to the SysAP using the Command Line
+### Uploading the archive file to the System Access Point using the Command Line
 
 When the addon archive file (`.tar` file) has been built successfully, it can be uploaded to the
-SysAP. This can also be done using the `free-at-home-cli` tool.
+System Access Point. This can also be done using the `free-at-home-cli` tool.
 
-For this, first set environment variables for the SysAP address and username/password credentials:
+For this, first set environment variables for the System Access Point address and username/password credentials:
 
 Windows:
 ```
-$env:FREEATHOME_BASE_URL = 'http://[local ip of SysAP]'
+$env:FREEATHOME_BASE_URL = 'http://[local ip of System Access Point]'
 $env:FREEATHOME_API_USERNAME = '[username]'
 $env:FREEATHOME_API_PASSWORD = '[password of user]'
 ```
 
 Linux / Unix:
 ```bash
-export FREEATHOME_BASE_URL='http://[local ip of SysAP]'
+export FREEATHOME_BASE_URL='http://[local ip of System Access Point]'
 export FREEATHOME_API_USERNAME='[username]'
 export FREEATHOME_API_PASSWORD='[password of user]'
 ```
@@ -71,7 +71,7 @@ Remember to stop the addon running on your local development machine when upload
 otherwise the same addon will be running twice, causing errors, e.g. because of duplicated device
 serials.
 
-### Uploading the archive file to the SysAP using the app or browser
+### Uploading the archive file to the System Access Point using the app or browser
 
 Instead of uploading an addon archive using the `free-at-home-cli` command line tool, the archive
 can also be uploaded using the app or a web browser. An end-user will always use this way, the
@@ -89,4 +89,4 @@ When using the app: Transfer this file to your device, open the free@home next a
 ![Screenshot of the Addons option in the app](addon_upload_3.jpg "App Addon Upload step 3: Open Addons")
 ![Screenshot of the addon upload in the app](addon_upload_4.jpg "App Addons Upload step 4: Upload")
 
-When using a web browser, open the SysAP in the browser and navigate to the corresponding page.
+When using a web browser, open the System Access Point in the browser and navigate to the corresponding page.

@@ -1,13 +1,13 @@
 ---
-title: "free@home Addon Metadata"
+title: "ABB free@home Addon Metadata"
 draft: false
 weight: 50
 ShowTOC: true
 ---
 
-## free@home Addon Metadata
+## ABB free@home Addon Metadata
 
-Every free@home Addon contains one special file `free-at-home-metadata.json`, which describes the
+Every ABB free@home Addon contains one special file `free-at-home-metadata.json`, which describes the
 Addon itself. When a new Addon is added to the system access point, it will look at this file to
 determine how to handle the Addon and what should be displayed to the end-user in the UI of the
 free@home next app (and similarly, the Web interface of the system access point).
@@ -34,7 +34,7 @@ attributes marked as `optional` can be omitted, if it provides no benefit for th
 
   A human readable name of the Addon.
 
-  This name is shown in the free@home next app and in the SysAP Web interface. The name is displayed
+  This name is shown in the free@home next app and in the System Access Point Web interface. The name is displayed
   in the list of installed Addons - it should be relatively short, so that the end-user can
   recognize each Addon immediately.
 
@@ -59,15 +59,16 @@ attributes marked as `optional` can be omitted, if it provides no benefit for th
   }
   ```
 
-  The full list of valid language codes for a given SysAP version can be obtained from the swagger
-  documentation on `http://<sysap IP>/swagger` in the `/rest/ref/{reference}` call of the Add-on
+  The full list of valid language codes for a given System Access Point version can be obtained from the swagger
+  documentation on `http://<IP of System Access Point>/swagger` in the `/rest/ref/{reference}` call of the Add-on
   API.
 
 - `description` (required, can be localized)
 
-  A human readable description of the script. This is similar to the name, but allows for a longer
-  text. It is display in the free@home next app and in the SysAP web interface when the user clicks
-  on the Addon.
+  A human readable description of the ABB free@home Addon. This is similar to the name, but allows
+  for a longer text. It is display in the free@home next app and in the System Access Point web interface when
+  the user clicks
+  on the ABB free@home Addon.
 
   Similar to the `name`, the description can be localized. See the documentation of `name` for
   details.
@@ -75,7 +76,7 @@ attributes marked as `optional` can be omitted, if it provides no benefit for th
 - `version` (required)
 
   The version of this Addon. This is displayed in the free@home next app and in the
-  SysAP Web interface.
+  System Access Point Web interface.
 
 - `entryPoint` (required)
 
@@ -113,11 +114,11 @@ A sample metadata JSON file looks like this:
 
 ```json
 {
-    "name": "Example for free@home addons",
+    "name": "Example for ABB free@home Addons",
     "version": "1.0.0",
     "id": "de.busch-jaeger.freeathome.example",
     "license": "MIT",
-    "description": "Example for free@home addons",
+    "description": "Example for ABB free@home Addons",
     "url": "http://busch-jaeger.de",
     "author": "Busch Jaeger",
     "type": "app",
@@ -125,7 +126,7 @@ A sample metadata JSON file looks like this:
 }
 ```
 
-### free@home Addon parameters
+### ABB free@home Addon parameters
 
 Some Addons will be able to run out of the box without any parameters. In those cases, the
 parameters attribute in the metadata file is not needed at all.
@@ -178,7 +179,7 @@ user configure them after installing the Addon:
 }
 ```
 
-With this file, the free@home next App and the SysAP web interface will display `Address`, `Port`,
+With this file, the free@home next App and the System Access Point web interface will display `Address`, `Port`,
 `Username` and `Password` fields in the settings of the Addon and let the end-user configure them.
 
 ![Screenshot of parameters in the app](parameters.png)
@@ -267,7 +268,7 @@ settings that the user will normally not changed in an `Advanced Settings` group
 }
 ```
 
-#### Using parameters in the Addon script
+#### Using parameters in an ABB free@home Addon
 
 When parameters are defined in the metadata file, they can be accessed from the TypeScript code in
 the Addon. The configured value will show up in the `Configuration`of the Addon, the
