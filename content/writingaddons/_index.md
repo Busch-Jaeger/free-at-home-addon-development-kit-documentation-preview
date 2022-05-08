@@ -279,7 +279,7 @@ const addons = new Addons.ScriptingHost(metaData.id);
 addons.on('configurationChanged', (configuration: AddonAPI.Configuration) => {
     console.log(configuration);
     const origPort = port;
-    port = configuration.default.items?.port ?? origPort;
+    port = configuration.["default"]?.items?.["port"] ?? origPort;
     if (port != origPort) {
         // restart the server
         server.close();
