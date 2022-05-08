@@ -101,6 +101,11 @@ attributes marked as `optional` can be omitted, if it provides no benefit for th
   If there is a website where the user can find additional information about your Addon, you can
   add the link here.
 
+- `minSysapVersion` (optional, since System Access Point version 3.1.0)
+
+  The minimum version of the system access point required by this Addon, for example "3.1.0". A
+  System Access Point that prior to version 3.1.0 will ignore this.
+
 - `parameters` (optional)
 
   This attribute can contain a JSON object containing additional parameters of your Addon.
