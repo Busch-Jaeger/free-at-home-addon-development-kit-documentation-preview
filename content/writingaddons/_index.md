@@ -154,7 +154,8 @@ use-case your Addon aims to implement:
   infeasible, the Addon might open a dedicated HTTP server instead.
 - Whenever a connected USB stick sends an update. If your Addon implements functionality that is
   provided by an USB stick/dongle attached to the System Access Point (e.g. providing a Modbus interface), you may
-  want to react to events from that device.
+  want to react to events from that device. See also
+  the [documentation on supporting other hardware interafces ]({{<relref otherhardwareinterfaces>}}).
 - By polling the external device or external state. Here you could start a timer in your Node.js
   based Addon and query the state of the external device - for example every few seconds. If you
   notice that the state changed, set the corresponding state in the virtual device of the Addon.

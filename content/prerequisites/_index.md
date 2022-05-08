@@ -81,4 +81,4 @@ To develop a new addon, additional prerequisites are required.
 
 An IDE with support for typescript (ideally a debugger) is recommended - though not required. You
 can use any development environment that you are comfortable with, however examples/screenshots in
-this documentation uses [Visual Studio Code](https://code.visualstudio.com/).
+this documentation use [Visual Studio Code](https://code.visualstudio.com/).
