@@ -1,0 +1,26 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+
+- task: giuliovdev.hugo-extension.hugo-build-task-v2.HugoTask@2
+  inputs:
+    source: 
+    destination: '$(Build.ArtifactStagingDirectory)'
+    hugoVersion: '0.92.2'
+  displayName: 'Run Hugo to generate HTML'
+  
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.StagingDirectory)'
+    ArtifactName: 'html'
+    publishLocation: 'Container'
+    StoreAsTar: true
