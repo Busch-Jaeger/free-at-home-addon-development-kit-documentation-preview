@@ -118,7 +118,7 @@ must have been activated on the System Access Point for this step, see the
 [prerequisites]({{<relref prerequisites>}}) for details. If successful, your System Access Point should now
 provide the new devices.
 
-![Screenshot of the App showing two virtual devices added by the Addon](/app_actuators.jpg "When addon is running, the virtual devices appear in the app and can be controlled")
+![Screenshot of the App showing two virtual devices added by the Addon](app_actuators.jpg "When addon is running, the virtual devices appear in the app and can be controlled")
 
 Open the `House Structure` on your System Access Point and place the devices into rooms,
 then they can be used normally. When switching the devices using the app, you should now see
@@ -183,8 +183,8 @@ for this example:
 If successful, the `Addons` section in the free@home settings should now display your addon.
 Make sure it is displayed as `Active`, otherwise it must be manually started.
 
-![Screenshot of the More option in the app](/addon_active_1.jpg "Verify addon is active step 1: Open More page in the app")
-![Screenshot of the Installation Settings option in the app](/addon_active_2.jpg "Verify addon is active step 2: Open Installation Settings in the app")
-![Screenshot of the Addons option in the app](/addon_active_3.jpg "Verify addon is active step 3: Open Addons in the app")
-![Screenshot of the Addons list in the app](/addon_active_4.jpg "Verify addon is active step 4: New Addon should be listed as Active in Addons list")
+![Screenshot of the More option in the app](addon_active_1.jpg "Verify addon is active step 1: Open More page in the app")
+![Screenshot of the Installation Settings option in the app](addon_active_2.jpg "Verify addon is active step 2: Open Installation Settings in the app")
+![Screenshot of the Addons option in the app](addon_active_3.jpg "Verify addon is active step 3: Open Addons in the app")
+![Screenshot of the Addons list in the app](addon_active_4.jpg "Verify addon is active step 4: New Addon should be listed as Active in Addons list")
 
