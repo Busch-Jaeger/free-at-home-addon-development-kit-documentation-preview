@@ -83,14 +83,16 @@ there.
 
 2. Adjust the configuration for your development System Access Point:
 
-   1. Open the file `launch.json` in the subfolder `.vscode`. This configuration will be used by
+   1. Copy the file `launch.json.example` in the subfolder `.vscode` to `launch.json` in the same folder.
+
+   2. Open the file `launch.json` in the subfolder `.vscode`. This configuration will be used by
       Visual Studio Code when starting the addon.
 
-   2. Find and edit the settings `FREEATHOME_API_BASE_URL`, `FREEATHOME_API_USERNAME` and
+   3. Find and edit the settings `FREEATHOME_API_BASE_URL`, `FREEATHOME_API_USERNAME` and
       `FREEATHOME_API_PASSWORD`. These must be set to the address of the local API on your System Access Point,
       the username on that System Access Point that provides the local API, and the password of that user.
       ```
-            "FREEATHOME_API_BASE_URL": "http://192.168.x.x/fhapi/v1", (IP Address of the System Access Point)
+            "FREEATHOME_BASE_URL": "http://192.168.x.x",              (IP Address of the System Access Point)
             "FREEATHOME_API_USERNAME": "installer",                   (Username shown for local API in the free@home NEXT app)
             "FREEATHOME_API_PASSWORD": "12345"                        (Password shown for local API in the free@home NEXT app)
       ```
